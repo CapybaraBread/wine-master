@@ -1345,9 +1345,10 @@ h1, h2, h3, h4, h5,
       .wine_v_1 .wine-actions .btn:hover, .wine_h_1 .wine-actions .btn:hover {
         background: #60004e;
         color: #fff; }
-  .wine_v_1:hover .wine-actions, .wine_h_1:hover .wine-actions, .wine_v_1:focus .wine-actions, .wine_h_1:focus .wine-actions {
-    opacity: 1;
-    visibility: visible; }
+.wine_v_1:hover .wine-actions, .wine_h_1:hover .wine-actions, .wine_v_1:focus .wine-actions, .wine_h_1:focus .wine-actions {
+  opacity: 1;
+  visibility: visible; }
+
 
 .hero-2 {
   background-size: cover;

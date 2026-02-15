@@ -3,7 +3,7 @@ from datetime import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 WINERY_FOUNDATION_YEAR = 1920
-EXCEL_PATH = "wine2.xlsx"
+EXCEL_PATH = "wine3.xlsx"
 TEMPLATE_PATH = "template.html"
 OUTPUT_PATH = "index.html"
 HOST = "0.0.0.0"
