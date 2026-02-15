@@ -3,9 +3,21 @@ import datetime
 from jinja2 import Environment, FileSystemLoader, select_autoescape # pyright: ignore[reportMissingImports]
 import pandas as pd
 from pprint import pprint
+
+
 exel_file = pd.read_excel('wine2.xlsx')
 data = exel_file.to_dict(orient='records')
-pprint(data)
+grouped = {}
+
+for item in data:   # data = df.to_dict(orient="records")
+    category = item["Категория"]
+
+    if category not in grouped:
+        grouped[category] = []
+
+    grouped[category].append(item)
+
+pprint(grouped, sort_dicts=False)
 env = Environment(
     loader=FileSystemLoader('.'),
     autoescape=select_autoescape(['html'])
