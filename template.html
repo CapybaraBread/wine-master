@@ -113,24 +113,24 @@
             </p>
           </div>
         </div>
-        {% for category, wines in grouped_data.items() %}
+        {% for category_name, category_wines in wines_by_category.items() %}
         <div class="row">
           <div class="col-12 text-center mb-4">
-            <h3 class="d-block">{{ category }}</h3>
+            <h3 class="d-block">{{ category_name }}</h3>
           </div>
         </div>
         <div class="row">
-          {% for wine in wines %}
+          {% for wine in category_wines %}
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4 pt-5">
               <img src="images/{{ wine['Картинка'] }}" alt="{{ wine['Название'] }}" class="img-fluid">
-              {% if wine.get('Акция') == 'Выгодное предложение' %}
+              {% if wine['show_offer'] %}
               <img src="assets/profitable.png" style="width:10rem;height: 10rem;position:absolute;right: -20px;top: -20px;">
               {% endif %}
               <div>
                 <h3 class="heading mt-3 mb-3 text-dark">{{ wine['Название'] }}</h3>
                 <p>
-                  {% if category != 'Напитки' %}
+                  {% if wine['show_grape'] %}
                   Сорт винограда - {{ wine['Сорт'] or 'Не указан' }}<br/>
                   {% endif %}
                   <span class="price">{{ wine['Цена']|int }} р.</span>
@@ -150,7 +150,7 @@
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-8">
             <h2 style="font-size: 3rem;">проверено временем</h2>
-            <span class="sub-title" style="font-size: 2.5rem;">{{age}} {{years_word}}</span>
+            <span class="sub-title" style="font-size: 2.5rem;">{{ age }} {{ years_word }}</span>
           </div>
         </div>
       </div>
